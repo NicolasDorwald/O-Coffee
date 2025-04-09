@@ -1,4 +1,4 @@
-initBurgerMenu();
+
 
 function initBurgerMenu() {
   const menuNavbar = document.getElementById("menu-navbar");
@@ -8,3 +8,12 @@ function initBurgerMenu() {
     menuNavbar.classList.toggle("expanded");
   });
 }
+
+initBurgerMenu();
+
+
+
+
+
+
+
