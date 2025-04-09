@@ -1,25 +1,23 @@
 import express from "express";
+import mainController from "../controller/mainController.js";
 export const router = express.Router();
 // import path from "node:path";
 
 // console.log(import.meta.url)
 
 // TODO vos routes
-router.get("/", (req, res) => { // route accueil
-    res.render("accueil");
-});
+router.get("/", mainController.getRandomCoffees);
 
-router.get("/catalogue", (req, res) => { // route catalogue
-    res.render("catalogue");
-});
+
+router.get("/catalogue", mainController.getCoffeesList);
+    
 
 router.get("/entreprise", (req, res) => { //route entreprise
     res.render("entreprise");
 });
 
-router.get("/article", (req, res) => { // route article
-    res.render("article");
-});
+router.get("/article/:id", mainController.getOneCoffee);
+    
 
 
 

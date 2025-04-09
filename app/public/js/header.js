@@ -5,6 +5,7 @@ function initBurgerMenu() {
   const menuButton = document.getElementById("menu-button");
   
   menuButton.addEventListener("click", () => {
+    //console.log("Le menu a été cliqué !");
     menuNavbar.classList.toggle("expanded");
   });
 }

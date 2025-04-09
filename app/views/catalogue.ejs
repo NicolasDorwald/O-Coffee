@@ -12,18 +12,21 @@
                             <option value="option3">option2</option>
                         </select>
                     </div>
+                    <!--boucle des différents produits-->
                     <div class="produits">
-                        <div class="produit">
-                            <p>Lorem ipsum, dolor sit amet 
-                                consectetur adipisicing elit. 
-                                Eius mollitia veritatis
-                                ipsum, dolor sit amet 
-                                consectetur dipisicing elit. 
-                                Eius mollitia</p>
-                            <a href="./article.ejs">Découvrir</a>
-                        </div>                      
+                        <% coffeesList.forEach(coffee => { %> 
+                            <div class="produit">
+                                <h4><%= coffee.name %></h4>
+                                <p><%= coffee.description %></p>
+                                <p><strong>Origine:</strong> <%= coffee.origine %></p>
+                                <p><strong>Prix au kilo:</strong> <%= coffee.price %> €</p>
+                                <p><strong>Goût:</strong> <%= coffee.taste %></p>
+                                <p><strong>Disponibilité:</strong> <%= coffee.dispo ? 'Oui' : 'Non' %></p>
+                                <a href="/article/<%= coffee.id %>">Découvrir</a>
+                            </div>
+                        <% }); %>                   
                     </div>
-                <a class="display--all--link" href="./catalogue.ejs">Voir tout</a>
+                <a class="display--all--link" href="./catalogue">Voir tout</a>
             </section>
         </main>
 

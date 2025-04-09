@@ -3,21 +3,16 @@
         <main>
             <section class="page--catalogue">
                 <div class="one--product">
-                    <img src="./images/coffees/327302954.png">
+                    <img src="/images/coffees/327302954.png">
                     <div class="produit">
-                        <time>publié le 25/05/2025</time>
-                        <h4>nom de l'article</h4>
-                        <p>Lorem ipsum, dolor sit amet 
-                            consectetur adipisicing elit. 
-                            Eius mollitia veritatis.
-                            Lorem ipsum dolor sit amet consectetur 
-                            adipisicing elit. Maxime quis, 
-                            consectetur eveniet vel quas hic quam 
-                            voluptatem cumque quod eligendi necessitatibus 
-                            inventore saepe alias ipsa? Fugiat 
-                            maxime aperiam cum expedita?
-                        </p>
-                        <a href="./catalogue.html">Catalogue</a>
+                        
+                <h4><%= onlyOneCoffee.name %></h4> 
+                <p><%= onlyOneCoffee.description %></p> 
+                <p><strong>Origine:</strong> <%= onlyOneCoffee.origine %></p> 
+                <p><strong>Prix au kilo:</strong> <%= onlyOneCoffee.price %>€</p> 
+                <p><strong>Caractéristique:</strong> <%= onlyOneCoffee.taste %></p> 
+                <p><strong>Disponibilité:</strong> <%= onlyOneCoffee.dispo ? 'Oui' : 'Non' %></p> 
+                        <a href="/catalogue">Catalogue</a>
                     </div>                       
                 </div>
             </section>
