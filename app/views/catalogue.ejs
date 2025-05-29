@@ -5,27 +5,30 @@
                 <h3>Notre Catalogue</h3>
                     <div class="category">
                         <label for="category"></label>
-                        <select id="category" name="category">
-                            <option value="all">Sélectionnez une option</option>
-                            <option value="asc">Prix croissant</option>
-                            <option value="desc">Prix décroissant</option>
+                        <select id="category" name="category" onchange="window.location.href='?sort=' + this.value;">
+                            <option value="" <%= (!sort) ? 'selected' : '' %>>Ordre alphabétique</option>
+                            <option value="asc" <%= (sort === 'asc') ? 'selected' : '' %>>Prix croissant</option>
+                            <option value="desc" <%= (sort === 'desc') ? 'selected' : '' %>>Prix décroissant</option>
                         </select>
                     </div>
                     <!--boucle des différents produits-->
                     <div class="produits">
                         <% coffeesList.forEach(coffee => { %> 
-                            <div class="produit">
+                            <div class="produit" data-price=""<%= coffee.price %>>
                                 <h4><%= coffee.name %></h4>
                                 <p><%= coffee.description %></p>
-                                <p><strong>Origine:</strong> <%= coffee.origine %></p>
-                                <p><strong>Prix au kilo:</strong> <%= coffee.price %> €</p>
-                                <p><strong>Goût:</strong> <%= coffee.taste %></p>
-                                <p><strong>Disponibilité:</strong> <%= coffee.dispo ? 'Oui' : 'Non' %></p>
-                                <a href="/article/<%= coffee.id %>">Découvrir</a>
+                                <ul>
+                                    <li><strong>Origine:</strong> <%= coffee.origine %></li>
+                                    <li><strong>Prix au kilo:</strong> <%= coffee.price %> €</li>
+                                    <li><strong>Goût:</strong> <%= coffee.taste %></li>
+                                    <li><strong>Disponibilité:</strong> <%= coffee.dispo ? 'Oui' : 'Non' %></li>
+                                </ul>
+                                <img src="/images/coffees/<%= coffee.reference %>.png">
+                                <a href="/article/<%= coffee.id %>" class="btn-link">Découvrir</a>
                             </div>
                         <% }); %>                   
                     </div>
-                <a class="display--all--link" href="./catalogue">Voir tout</a>
+                <a class="display--all--link" href="./catalogue" class="btn-link">Voir tout</a>
             </section>
         </main>
 

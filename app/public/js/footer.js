@@ -1,26 +1,12 @@
 // Ouvrir la modale formulaire de contact
-const modal = document.getElementById("contactModal");
+const contactModal = document.getElementById("contactModal");
 const openButton = document.getElementById("openContactForm");
 const closeButton = document.getElementById("closeModal");
 
 openButton.addEventListener("click", () => {
-    modal.style.display = "block";
+    contactModal.style.display = "block";
+    document.body.style.overflow = "hidden"; // Bloque le scroll page
 });
-
-// Fermer la modale formulaire de contact
-closeButton.addEventListener("click", () => {
-    modal.style.display = "none";
-});
-
-// Fermer la modale de contact si on clique en dehors de la boîte
-window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-        modal.style.display = "none";
-    }
-});
-
-
-
 
 // Obtenir les éléments de CGV 
 const cgvModal = document.getElementById("cgv-modal");
@@ -30,21 +16,8 @@ const cgvClose = document.getElementById("cgv-close");
 // Ouvrir la modale des CGV quand on clique sur le lien
 cgvLink.onclick = function() {
     cgvModal.style.display = "block";
+    document.body.style.overflow = "hidden"; // Bloque le scroll page
 }
-
-// Fermer la modale des CGV quand on clique sur la croix
-cgvClose.onclick = function() {
-    cgvModal.style.display = "none";
-}
-
-// Fermer la modale si on clique en dehors de la modale
-window.onclick = function(event) {
-    if (event.target == cgvModal) {
-        cgvModal.style.display = "none";
-    }
-}
-
-
 
 // Obtenir les éléments mentions légales
 const mlModal = document.getElementById("mlegal-modal");
@@ -54,15 +27,8 @@ const mlClose = document.getElementById("ml-close");
 // Ouvrir la modale des CGV quand on clique sur le lien
 mlLink.onclick = function() {
     mlModal.style.display = "block";
+    document.body.style.overflow = "hidden"; // Bloque le scroll page
 }
-
-// Fermer la modale des ml quand on clique sur la croix
-mlClose.onclick = function() {
-    mlModal.style.display = "none";
-}
-
-
-
 
 // Obtenir les éléments de privacy 
 const privacyModal = document.getElementById("privacy-modal");
@@ -72,25 +38,33 @@ const privacyClose = document.getElementById("privacy-close");
 // Ouvrir la modale privacy quand on clique sur le lien
 privacyLink.onclick = function() {
     privacyModal.style.display = "block";
-}
-
-// Fermer la modale privacy quand on clique sur la croix
-privacyClose.onclick = function() {
-    privacyModal.style.display = "none";
+    document.body.style.overflow = "hidden"; // Bloque le scroll page
 }
 
 
 
-// Fermer les modales si on clique en dehors des modale 
+// factorisation de la fermeture des modals avec la croix
+const closeButtons = document.querySelectorAll(".close");
+
+closeButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    // On suppose que la modale est l'ancêtre direct avec la classe "modal"
+    const modal = btn.closest(".modal");
+    if (modal) {
+      modal.style.display = "none";
+      document.body.style.overflow = ""; // Restaure le scroll page
+    }
+  });
+});
+// factorisation de la fermeture des modals si on clique en dehors des modals
+const modals = [cgvModal, mlModal, privacyModal, contactModal];
+
 window.onclick = function(event) {
-    if (event.target == cgvModal) {
-        cgvModal.style.display = "none";  
-    } 
-    if (event.target == mlModal) {
-        mlModal.style.display = "none";  
+  modals.forEach(modal => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+      document.body.style.overflow = ""; // Restaure le scroll page
     }
-    if (event.target == privacyModal) {
-        privacyModal.style.display = "none"; 
-    }
-}
+  });
+};
 

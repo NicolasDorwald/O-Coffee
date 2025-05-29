@@ -2,20 +2,18 @@ import dataMappers from '../dataMappers/dataMappers.js';
 
 const mainController = {
 
-
     async getCoffeesList(req, res) {
       try {
-        const coffeesList = await dataMappers.getAllCoffees();
+        const sort = req.query.sort; // 'asc' ou 'desc'
+        const coffeesList = await dataMappers.getAllCoffees(sort);
         //console.log("Données récupérées : ", coffeesList);
-        res.render('catalogue', {
-          coffeesList,
-        });
+        res.render('catalogue', { coffeesList, sort });
+
         } catch (error) {
         console.error(error);
         res.status(500).send(`An error occured with the database :\n${error.message}`);
         }
     },
-
 
     async getOneCoffee(req, res) {
       try {

@@ -27,7 +27,7 @@
                             inoubliable.</p>
 
                         <div class="link-catalogue">
-                            <a href="/catalogue">Voir le catalogue</a>
+                            <a href="/catalogue" class="btn-link">Voir le catalogue</a>
                         </div>
                     </article>
                     <div class="right">
@@ -38,15 +38,14 @@
             <section class="news">
                 <div class="new-products--list">
 
-
                     <% randomCoffees.forEach(coffee => { %>
                     <div class="new-product">
                         <h4><p><%= coffee.name %></p></h4>
                         <p><%= coffee.description %></p>
-                        <a href="/article/<%= coffee.id %>">Découvrir</a>
+                        <img src="/images/coffees/<%= coffee.reference %>.png">
+                        <a href="/article/<%= coffee.id %>" class="btn-link">Découvrir</a>
                     </div>
                     <% }); %>
-
 
                 </div>
             </section>

@@ -1,14 +1,23 @@
 import { pgPool } from '../../config/pgPool.js'
 
 const dataMappers = {
-    async getAllCoffees() {
-    try {
-        const allCoffees = await pgPool.query("SELECT * FROM coffee");
-        return allCoffees.rows; 
-    } catch (error) {
-        console.error("Erreur SQL :", error);
-    }
-    },
+    
+    async getAllCoffees(sort) {
+        try {
+          let query = 'SELECT * FROM coffees ORDER BY name ASC'; // tri alphabétique par défaut
+      
+          if (sort) {
+            const order = sort.toLowerCase() === 'desc' ? 'DESC' : 'ASC';
+            query = `SELECT * FROM coffees ORDER BY price ${order}`; // tri par prix si paramètre présent
+          }
+      
+          const allCoffees = await pgPool.query(query);
+          return allCoffees.rows;
+        } catch (error) {
+          console.error("Erreur SQL :", error);
+          return [];
+        }
+      },
 
     async getOneCoffee(id) {
         try {
