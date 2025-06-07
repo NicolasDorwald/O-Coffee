@@ -48,3 +48,7 @@ form input, form textarea {
     cursor: pointer;
 }
 
+
+.modal-content > section {
+    margin-bottom: 2rem;
+}

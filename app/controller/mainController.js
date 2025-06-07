@@ -18,9 +18,9 @@ const mainController = {
     async getOneCoffee(req, res) {
       try {
         const id = req.params.id;
-        console.log(id)
+        //console.log(id)
         const onlyOneCoffee = await dataMappers.getOneCoffee(id);
-        console.log("Données récupérées : ", onlyOneCoffee);
+        //console.log("Données récupérées : ", onlyOneCoffee);
           if (onlyOneCoffee) {
             res.render('article', { onlyOneCoffee });
           } else {
