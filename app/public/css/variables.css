@@ -1,0 +1,13 @@
+:root {
+  --color-bg-body: rgb(221, 185, 159);
+  --color-bg-antiquewhite: antiquewhite;
+  --color-text-dark-brown: #361d19;
+  --color-shadow-light: rgba(0, 0, 0, 0.1);
+  --color-shadow-dark: rgba(63, 0, 0, 0.5);
+  --color-bg-modal: #ffefe8;
+  --color-border-modal: #888;
+  --color-btn-dark: #351915;
+  --color-btn-hover: #4a1b15;
+}
+
+  

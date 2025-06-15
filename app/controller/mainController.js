@@ -11,7 +11,7 @@ const mainController = {
 
         } catch (error) {
         console.error(error);
-        res.status(500).send(`An error occured with the database :\n${error.message}`);
+        res.status(500).send(`Erreur avec la base de données :\n${error.message}`);
         }
     },
 
@@ -28,7 +28,7 @@ const mainController = {
           }
         } catch (error) {
         console.error(error);
-        res.status(500).send(`An error occured with the database :\n${error.message}`);
+        res.status(500).send(`Erreur avec la base de données :\n${error.message}`);
         }
     },
 

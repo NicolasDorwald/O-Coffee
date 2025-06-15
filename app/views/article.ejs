@@ -3,16 +3,19 @@
     <main>
         <section class="page--catalogue">
             <div class="one--product">
-                <img src="/images/coffees/<%= onlyOneCoffee.reference %>.png">
-                <div class="product"> 
-                    <h4><%= onlyOneCoffee.name %></h4> 
-                    <p><%= onlyOneCoffee.description %></p> 
-                    <p><strong>Origine:</strong> <%= onlyOneCoffee.origine %></p> 
-                    <p><strong>Prix au kilo:</strong> <%= onlyOneCoffee.price %>€</p> 
-                    <p><strong>Caractéristique:</strong> <%= onlyOneCoffee.taste %></p> 
-                    <p><strong>Disponibilité:</strong> <%= onlyOneCoffee.dispo ? 'Oui' : 'Non' %></p> 
+                <img src="/images/coffees/<%= onlyOneCoffee.reference %>.png" alt="Image de <%= onlyOneCoffee.name %>">
+                <div class="product">
+                    <h4><%= onlyOneCoffee.name %></h4>
+                    <p><%= onlyOneCoffee.description %></p>
+                    <ul>
+                      <li><strong>Origine :</strong> <%= onlyOneCoffee.origine %></li>
+                      <li><strong>Prix au kilo :</strong> <%= onlyOneCoffee.price %> €</li>
+                      <li><strong>Caractéristique :</strong> <%= onlyOneCoffee.taste %></li>
+                      <li><strong>Disponibilité :</strong> <%= onlyOneCoffee.dispo ? 'Oui' : 'Non' %></li>
+                    </ul>
                     <a href="/catalogue" class="btn-link">Retour au catalogue</a>
-                </div>                       
+                  </div>
+                                      
             </div>
         </section>
     </main>

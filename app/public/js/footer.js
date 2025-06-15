@@ -1,4 +1,4 @@
-// Ouvrir la modale formulaire de contact
+// Ouverture de la modale formulaire de contact
 const contactModal = document.getElementById("contactModal");
 const openButton = document.getElementById("openContactForm");
 const closeButton = document.getElementById("closeModal");
@@ -8,35 +8,38 @@ openButton.addEventListener("click", () => {
     document.body.style.overflow = "hidden"; // Bloque le scroll page
 });
 
-// Obtenir les éléments de CGV 
+// Obtention les éléments de CGV 
 const cgvModal = document.getElementById("cgv-modal");
 const cgvLink = document.getElementById("cgv-link");
 const cgvClose = document.getElementById("cgv-close");
 
-// Ouvrir la modale des CGV quand on clique sur le lien
-cgvLink.onclick = function() {
+// Ouverture de la modale des CGV quand on clique sur le lien
+cgvLink.onclick = function(e) {
+    e.preventDefault();
     cgvModal.style.display = "block";
     document.body.style.overflow = "hidden"; // Bloque le scroll page
 }
 
-// Obtenir les éléments mentions légales
+// Obtention les éléments mentions légales
 const mlModal = document.getElementById("mlegal-modal");
 const mlLink = document.getElementById("ml-link");
 const mlClose = document.getElementById("ml-close");
 
-// Ouvrir la modale des CGV quand on clique sur le lien
-mlLink.onclick = function() {
+// Ouverture de la modale des CGV quand on clique sur le lien
+mlLink.onclick = function(e) {
+    e.preventDefault();
     mlModal.style.display = "block";
     document.body.style.overflow = "hidden"; // Bloque le scroll page
 }
 
-// Obtenir les éléments de privacy 
+// Obtention les éléments de privacy 
 const privacyModal = document.getElementById("privacy-modal");
 const privacyLink = document.getElementById("privacy-link");
 const privacyClose = document.getElementById("privacy-close");
 
-// Ouvrir la modale privacy quand on clique sur le lien
-privacyLink.onclick = function() {
+// Ouverture de la modale privacy quand on clique sur le lien
+privacyLink.onclick = function(e) {
+    e.preventDefault();
     privacyModal.style.display = "block";
     document.body.style.overflow = "hidden"; // Bloque le scroll page
 }

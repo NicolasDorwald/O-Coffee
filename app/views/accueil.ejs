@@ -37,16 +37,18 @@
             </section>
             <section class="news">
                 <div class="new-products--list">
-
+            <% if (randomCoffees.length === 0) { %>
+            <p>Aucun café disponible pour le moment.</p>
+            <% } else { %>
                     <% randomCoffees.forEach(coffee => { %>
-                    <div class="new-product">
-                        <h4><p><%= coffee.name %></p></h4>
-                        <p><%= coffee.description %></p>
-                        <img src="/images/coffees/<%= coffee.reference %>.png">
-                        <a href="/article/<%= coffee.id %>" class="btn-link">Découvrir</a>
-                    </div>
+                        <article class="new-product">
+                            <h4><%= coffee.name %></h4>
+                            <p><%= coffee.description %></p>
+                            <img src="/images/coffees/<%= coffee.reference %>.png" alt="Café <%= coffee.name %>">
+                            <a href="/article/<%= coffee.id %>" class="btn-link">Découvrir</a>
+                        </article>
                     <% }); %>
-
+            <% } %>
                 </div>
             </section>
         </main>
