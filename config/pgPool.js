@@ -11,4 +11,7 @@ if (!process.env.PG_URL) {
   
 export const pgPool = new Pool({
     connectionString: process.env.PG_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
