@@ -17,7 +17,7 @@ const cgvClose = document.getElementById("cgv-close");
 cgvLink.onclick = function(e) {
     e.preventDefault();
     cgvModal.style.display = "block";
-    document.body.style.overflow = "hidden"; // Bloque le scroll page
+    document.body.style.overflow = "hidden"; 
 }
 
 // Obtention les éléments mentions légales
@@ -51,11 +51,11 @@ const closeButtons = document.querySelectorAll(".close");
 
 closeButtons.forEach(btn => {
   btn.addEventListener("click", () => {
-    // On suppose que la modale est l'ancêtre direct avec la classe "modal"
+    
     const modal = btn.closest(".modal");
     if (modal) {
       modal.style.display = "none";
-      document.body.style.overflow = ""; // Restaure le scroll page
+      document.body.style.overflow = ""; 
     }
   });
 });

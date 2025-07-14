@@ -4,11 +4,9 @@ const mainController = {
 
     async getCoffeesList(req, res) {
       try {
-        const sort = req.query.sort; // 'asc' ou 'desc'
+        const sort = req.query.sort; 
         const coffeesList = await dataMappers.getAllCoffees(sort);
-        //console.log("Données récupérées : ", coffeesList);
         res.render('catalogue', { coffeesList, sort });
-
         } catch (error) {
         console.error(error);
         res.status(500).send(`Erreur avec la base de données :\n${error.message}`);
@@ -18,9 +16,7 @@ const mainController = {
     async getOneCoffee(req, res) {
       try {
         const id = req.params.id;
-        //console.log(id)
         const onlyOneCoffee = await dataMappers.getOneCoffee(id);
-        //console.log("Données récupérées : ", onlyOneCoffee);
           if (onlyOneCoffee) {
             res.render('article', { onlyOneCoffee });
           } else {
