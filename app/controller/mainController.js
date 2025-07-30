@@ -43,7 +43,7 @@ const mainController = {
                     randomCoffees.push(coffee);
                 }
             }
-            res.render('accueil', { randomCoffees });
+            res.render('accueil', { randomCoffees , csrfToken: req.csrfToken() });
         } catch (error) {
             console.error(error);
             res.status(500).send(`An error occurred: ${error.message}`);
@@ -59,8 +59,10 @@ const mainController = {
         const name = sanitizeHtml(result.data.name);
         const email = sanitizeHtml(result.data.email);
         const message = sanitizeHtml(result.data.message);
+
         console.log("Message reçu :", { name, email, message });
-        res.json({ success: true, message: "Message bien reçu, merci !" });
+        // Redirection vers une page dédiée après envoi
+        res.redirect('/contact/confirmation');
     }
 
 }
