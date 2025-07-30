@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+
+<section class="messages">
+    <h2>Messages reçus</h2>
+    <% if (messages.length === 0) { %>
+        <p>Aucun message reçu.</p>
+    <% } else { %>
+        <ul>
+            <% messages.forEach(msg => { %>
+                <li style="margin-bottom: 2em;">
+                    <strong>Nom :</strong> <%= msg.name %><br>
+                    <strong>Email :</strong> <%= msg.email %><br>
+                    <strong>Message :</strong>
+                    <p><%= msg.message %></p>
+                </li>
+            <% }) %>
+        </ul>
+    <% } %>
+</section>
+
+<%- include('partials/footer') %>
